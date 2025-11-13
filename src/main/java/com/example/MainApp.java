@@ -23,7 +23,7 @@ public class MainApp {
 
     // 1. FIX: Use @Value to inject the environment variable into a class field.
     // Spring manages the initialization, making the key accessible in all controller methods.
-    @Value("${GEMINI_PERSONAL_API_KEY:}")
+    @Value("${GEMINI_JOB_INFO_KEY:}")
     private String apiKey;
 
     // Main method to start the Spring Boot application
@@ -50,8 +50,8 @@ public class MainApp {
         // 2. FIX: apiKey is now a class member and available here.
 
         if (apiKey == null || apiKey.isEmpty()) {
-            System.err.println("ERROR: The GEMINI_PERSONAL_API_KEY environment variable was not found or is empty.");
-            return "ERROR: Gemini API Key not configured. Please set the GEMINI_PERSONAL_API_KEY environment variable.";
+            System.err.println("ERROR: The GEMINI_JOB_INFO_KEY environment variable was not found or is empty.");
+            return "ERROR: Gemini API Key not configured. Please set the GEMINI_JOB_INFO_KEY environment variable.";
         }
 
         String prompt = """
