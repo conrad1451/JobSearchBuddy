@@ -110,9 +110,11 @@ public class MainApp {
         String prompt = """
         Based on the submitted job title, gives several related job titles and lists the 
         common skills among all of them and the particular skills required for each one. 
-            job title: \"software engineer\"
-            job level: \"entry level\"
-            """;
+        job title: \"software engineer\"
+        job level: \"entry level\"
+
+        Format your entire response as a single JSON object. The keys should be: "jobTitles", "commonSkills", and "particularSkills". The value for "jobTitles" should be a list of strings, "commonSkills" should be a list of strings, and "particularSkills" should be a list of objects, where each object has "title" and "skills" keys.
+        """;
                 
         String jsonPayload = String.format("""
             {
