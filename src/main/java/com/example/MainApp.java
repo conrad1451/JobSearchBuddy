@@ -98,11 +98,11 @@ public class MainApp {
      */
     @GetMapping("/similarjobtitles")
     public String similarJobTitles() {
-                String prompt = "Based on the submitted job title, gives several related job titles and lists the common skills among all of them and the particular skills required for each one.
-job title: \"software engineer\"
-job level: \"entry level\""
+        String prompt = """Based on the submitted job title, gives several related job titles and lists the common skills among all of them and the particular skills required for each one. 
+            job title: \"software engineer\"
+            job level: \"entry level\"""";
                 
-                  String jsonPayload = String.format("""
+        String jsonPayload = String.format("""
             {
                 "contents": [
                     {
