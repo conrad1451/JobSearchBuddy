@@ -54,7 +54,16 @@ public class MainApp {
             return "ERROR: Gemini API Key not configured. Please set the GEMINI_PERSONAL_API_KEY environment variable.";
         }
 
-        String prompt = "Create a comprehensive table that maps the following 12 industries and their related \"Tech\" sub-industries to the US states where they are most heavily concentrated: Construction, Healthcare, Operations, Transportation, Travel, Education, and their corresponding \"Tech\" versions (e.g., ConstructionTech). For each state listed, assume the concentration is high enough to support at least 10 major companies in that sector. Use a table format with US States in the first column and the corresponding concentrated industries in the second.";
+        String prompt = """
+            Create a comprehensive table that maps the following 12 industries and their related \"Tech\" 
+            sub-industries to the US states where they are most heavily concentrated: Construction, Healthcare, 
+            Operations, Transportation, Travel, Education, and their corresponding \"Tech\" versions 
+            (e.g., ConstructionTech). For each state listed, assume the concentration is high enough to support 
+            at least 10 major companies in that sector. Use a table format with US States in the first column 
+            and the corresponding concentrated industries in the second. 
+        """;
+        
+
         String jsonPayload = String.format("""
             {
                 "contents": [
@@ -98,9 +107,12 @@ public class MainApp {
      */
     @GetMapping("/similarjobtitles")
     public String similarJobTitles() {
-        String prompt = """Based on the submitted job title, gives several related job titles and lists the common skills among all of them and the particular skills required for each one. 
+        String prompt = """
+        Based on the submitted job title, gives several related job titles and lists the 
+        common skills among all of them and the particular skills required for each one. 
             job title: \"software engineer\"
-            job level: \"entry level\"""";
+            job level: \"entry level\"
+            """;
                 
         String jsonPayload = String.format("""
             {
