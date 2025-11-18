@@ -23,7 +23,8 @@ public class MainApp {
 
     // 1. FIX: Use @Value to inject the environment variable into a class field.
     // Spring manages the initialization, making the key accessible in all controller methods.
-    @Value("${GEMINI_JOB_INFO_KEY:}")
+    // @Value("${GEMINI_JOB_INFO_KEY:}")
+    @Value("${DIG_OCEAN_AI_KEY:}")
     private String apiKey;
 
     // Main method to start the Spring Boot application
